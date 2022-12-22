@@ -1,0 +1,28 @@
+# Project: Dev C++建ACLLib项目
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"D:/ruanjiam/bianchen/C/TDM-GCC 10.3.0/bin" -static-libgcc -mwindows
+INCS     = -I"D:/ruanjiam/bianchen/C/TDM-GCC 10.3.0/bin"
+CXXINCS  = -I"D:/ruanjiam/bianchen/C/TDM-GCC 10.3.0/bin"
+BIN      = "Dev C++建ACLLib项目.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
